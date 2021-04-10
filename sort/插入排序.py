@@ -2,6 +2,11 @@
 # @Time   : 2021/3/13 5:32 下午
 # @Author : wu
 
+"""
+时间复杂度：O(n^2）
+
+空间复杂度：：O(1)
+"""
 
 def insert_sort(data):
     for i in range(1, len(data)):
