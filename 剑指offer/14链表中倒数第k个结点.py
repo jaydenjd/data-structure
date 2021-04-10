@@ -6,7 +6,13 @@
 
 快慢双指针，先让一个指针指向头节点，先走K步，如果为空就返回空，反之，就再让一个指针从头节点出发，快慢指针一起走，直到快指针为空，输出慢指针
 
-最后还需要注意的是，如果 k 大于指针长度，那么快指针走的步数应该是小于 k 的，这种情况下，应该返回空值t 
+最后还需要注意的是，如果 k 大于指针长度，那么快指针走的步数应该是小于 k 的，这种情况下，应该返回空值
+
+需要注意的特殊情况，均返回 None :
+
+1. 链表为空
+2. k 小于 1
+3. k 大于链表长度
 
 """
 # class ListNode:
@@ -22,17 +28,18 @@
 # @return ListNode类
 #
 class Solution:
-    def FindKthToTail(self, pHead, k):
-        # write code here
-        if not pHead or k <= 0:
+    def FindKthToTail(self , pHead , k ):
+        # 链表为空 或者 k 小于 1
+        if not pHead or k < 1:
             return None
-        cnt = 1
-        slow = fast = pHead
+        cursor = 1
+        fast = slow = pHead
         while fast.next:
-            if cnt >= k:
+            if cursor >= k:
                 slow = slow.next
-            cnt += 1
             fast = fast.next
-        if cnt < k:
+            cursor += 1
+        # k 大于链表长度
+        if cursor < k:
             return None
         return slow
