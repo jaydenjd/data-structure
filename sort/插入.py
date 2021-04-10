@@ -7,11 +7,8 @@ def insert_sort(data):
     for i in range(1, len(data)):
         j = i - 1
         tmp = data[i]
-        while j >= 0:
-            if tmp < data[j]:
-                data[j + 1] = data[j]
-            else:
-                break
+        while j >= 0 and tmp < data[j]:
+            data[j + 1] = data[j]
             j -= 1
         data[j + 1] = tmp
 
@@ -20,3 +17,5 @@ def insert_sort(data):
 
 data = [1, 4, 5, 2, 3]
 print(insert_sort(data))
+
+

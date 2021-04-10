@@ -3,22 +3,16 @@
 # @Author : wu
 
 
-def swap(data, i, j):
-    tmp = data[i]
-    data[i] = data[j]
-    data[j] = tmp
-
-
-def select_sort(data):
-    for i in range(len(data)):
-        min_index = i
-        for j in range(i + 1, len(data)):
-            if data[j] < data[min_index]:
-                min_index = j
-        if min_index != i:
-            swap(data, min_index, i)
-
-    return data
+def select_sort(arr):
+    n = len(arr)
+    for i in range(n):
+        _min = i
+        for j in range(i, n):
+            if arr[j] < arr[_min]:
+                _min = j
+        if _min != i:
+            arr[i], arr[_min] = arr[_min], arr[i]
+    return arr
 
 
 data = [1, 4, 5, 2, 3]
