@@ -11,6 +11,7 @@
 空间复杂度：：O(1)
 """
 
+
 def insert_sort(data):
     for i in range(1, len(data)):
         j = i - 1
@@ -25,5 +26,3 @@ def insert_sort(data):
 
 data = [1, 4, 5, 2, 3]
 print(insert_sort(data))
-
-
