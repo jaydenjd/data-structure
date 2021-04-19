@@ -10,14 +10,13 @@
 class Solution:
     def reverse(self, x: int) -> int:
         tmp = abs(x)
-        reverse = 0
+        num = 0
         while tmp:
-            tmp, mod = divmod(tmp, 10)
-            if mod > 0:
-                reverse += (reverse + mod) * 10
+            tmp, n = divmod(tmp, 10)
+            if tmp != 0:
+                num = (num + n) * 10
             else:
-                reverse += tmp
-        reverse = reverse if x > 0 else -reverse
-        if reverse > 2 ** 31 - 1 or reverse < -2 ** 31:
+                num += n
+        if num > 2 ** 31 - 1 or num < -2 ** 31:
             return 0
-        return reverse
+        return num if x > 0 else -num
