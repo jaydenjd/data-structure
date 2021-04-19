@@ -13,7 +13,8 @@ def radix_sort(s, max_num=None):
     while i < cycle:
         buckets = [[] for _ in range(10)]
         for k in s:
-            buckets[int(k / (10 ** i)) % 10].append(k)
+            index = int(k / (10 ** i)) % 10  # 即求第个位置上的数字
+            buckets[index % 10].append(k)
         s.clear()
         for n in buckets:
             for m in n:
