@@ -25,9 +25,9 @@ def merge(left, right):
 def merge_sort(arr):
     if len(arr) <= 1:
         return arr
-    half = len(arr) // 2  # 即 int(len(arr)/2)
+    mid = len(arr) // 2  # 即 int(len(arr)/2)
     # 归并排序前半段，再归并排序后半段
-    left, right = merge_sort(arr[:half]), merge_sort(arr[half:])
+    left, right = merge_sort(arr[:mid]), merge_sort(arr[mid:])
     res = merge(left, right)
     return res
 
